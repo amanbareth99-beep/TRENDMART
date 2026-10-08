@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendMart — Smart Products, Better Prices</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">TrendMart</div>
+
+      <button class="menuBtn" id="menuBtn">☰</button>
+
+      <nav class="navlinks" id="navLinks">
+        <button data-action="home">Home</button>
+        <button data-category="All">All Products</button>
+        <button data-category="Home & Kitchen">Home & Kitchen</button>
+        <button data-category="Gadgets">Gadgets</button>
+        <button data-category="Lifestyle">Lifestyle</button>
+        <button data-action="about">About</button>
+      </nav>
+
+      <div class="navright">
+        <input class="search" id="searchInput" type="search" placeholder="Search...">
+        <button class="cartBtn" id="cartBtn">
+        🛒 Cart
+        <span class="badgeCount" id="cartCount">0</span>
+      </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="heroContent">
+      <div class="eyebrow">Premium Everyday Finds</div>
+      <h1>Discover<br>Timeless Finds.</h1>
+      <p>Smart products. Better prices. Delivered to your door.</p>
+      <button class="goldBtn" id="shopBtn">SHOP NOW</button>
+    </div>
+  </section>
+
+  <section class="section" id="products">
+
+    <div class="sectionTitle">
+      <small>Our Collection</small>
+      <h2>Featured Products</h2>
+    </div>
+
+    <div class="categories">
+      <button class="catBtn active" data-filter="All">All Products</button>
+      <button class="catBtn" data-filter="Home & Kitchen">Home & Kitchen</button>
+      <button class="catBtn" data-filter="Gadgets">Gadgets</button>
+      <button class="catBtn" data-filter="Lifestyle">Lifestyle</button>
+    </div>
+
+    <div class="grid" id="productGrid"></div>
+
+  </section>
+
+  <section class="why" id="about">
+    <div class="section">
+
+      <div class="sectionTitle">
+        <small>Shopping With Confidence</small>
+        <h2>Why Choose TrendMart?</h2>
+      </div>
+
+      <div class="benefits">
+
+        <div class="benefit">
+          <div class="benefitIcon">✓</div>
+          <h3>Quality Products</h3>
+          <p>Carefully selected everyday products.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefitIcon">₹</div>
+          <h3>Great Prices</h3>
+          <p>Smart products at attractive prices.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefitIcon">🔒</div>
+          <h3>Secure Shopping</h3>
+          <p>A simple and safe checkout experience.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefitIcon">🚚</div>
+          <h3>Fast Delivery</h3>
+          <p>Get your order delivered to your door.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo">TrendMart</div>
+    <p>Smart products. Better prices.</p>
+
+    <div class="footerLinks">
+      <button data-action="home">Home</button>
+      <button data-category="All">Products</button>
+      <button data-action="about">About</button>
+      <button type="button">Contact</button>
+      <button type="button">Privacy Policy</button>
+      <button type="button">Terms & Conditions</button>
+    </div>
+
+    <p>© 2026 TrendMart. All rights reserved.</p>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cartDrawer" id="cartDrawer">
+
+    <div class="drawerHead">
+      <h2>Your Cart</h2>
+      <button class="close" id="closeCart">×</button>
+    </div>
+
+    <div class="cartItems" id="cartItems"></div>
+
+    <div class="cartBottom">
+      <div class="totalRow">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+
+      <button class="goldBtn fullBtn" id="checkoutBtn">
+      PROCEED TO CHECKOUT
+    </button>
+
+      <button class="catBtn fullBtn" id="continueBtn">
+      CONTINUE SHOPPING
+    </button>
+    </div>
+
+  </aside>
+
+  <div class="modal" id="checkoutModal">
+
+    <div class="modalBox">
+
+      <div class="modalHead">
+        <h2>Checkout</h2>
+        <button class="close" id="closeCheckout">×</button>
+      </div>
+
+      <form id="checkoutForm">
+
+        <div class="formGrid">
+
+          <div class="field">
+            <label>Full Name</label>
+            <input id="customerName" required placeholder="Your name">
+          </div>
+
+          <div class="field">
+            <label>Mobile Number</label>
+            <input id="customerMobile" type="tel" required placeholder="10-digit mobile">
+          </div>
+
+          <div class="field full">
+            <label>Complete Address</label>
+            <textarea id="customerAddress" rows="3" required placeholder="House no., street, area"></textarea>
+          </div>
+
+          <div class="field">
+            <label>City</label>
+            <input id="customerCity" required>
+          </div>
+
+          <div class="field">
+            <label>State</label>
+            <input id="customerState" required>
+          </div>
+
+          <div class="field">
+            <label>PIN Code</label>
+            <input id="customerPin" inputmode="numeric" required>
+          </div>
+
+        </div>
+
+        <h3 class="paymentTitle">Payment Method</h3>
+
+        <div class="payments">
+
+          <button type="button" class="payment selected" data-method="UPI / QR">
+          📱 UPI / QR
+        </button>
+
+          <button type="button" class="payment" data-method="Card">
+          💳 Debit / Credit Card
+        </button>
+
+          <button type="button" class="payment" data-method="Net Banking">
+          🏦 Net Banking
+        </button>
+
+          <button type="button" class="payment" data-method="Cash on Delivery">
+          📦 Cash on Delivery
+        </button>
+
+        </div>
+
+        <div class="orderSummary">
+          <div class="summaryLine">
+            <span>Items</span>
+            <span id="summaryItems">0</span>
+          </div>
+
+          <div class="summaryLine">
+            <span>Subtotal</span>
+            <span id="summarySubtotal">₹0</span>
+          </div>
+
+          <div class="summaryLine">
+            <span>Delivery</span>
+            <span>FREE</span>
+          </div>
+
+          <div class="summaryLine total">
+            <span>Grand Total</span>
+            <span id="summaryTotal">₹0</span>
+          </div>
+        </div>
+
+        <button class="goldBtn fullBtn" type="submit" id="payButton">
+        PAY ₹0
+      </button>
+
+        <p class="demoNote">
+          Demo payment only — no real money is charged.
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+  <div class="modal" id="successModal">
+
+    <div class="modalBox">
+
+      <div class="success">
+
+        <div class="successIcon">✓</div>
+
+        <h2>Order Placed Successfully</h2>
+
+        <p>Thank you for shopping with TrendMart.</p>
+
+        <div class="orderNo">
+          <p>Order Number</p>
+          <strong id="orderNumber">TM-000000</strong>
+
+          <p class="successLabel">Total Amount</p>
+          <strong id="successTotal">₹0</strong>
+        </div>
+
+        <button class="goldBtn" id="successContinue">
+        CONTINUE SHOPPING
+      </button>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

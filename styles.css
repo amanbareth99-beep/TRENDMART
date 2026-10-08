@@ -1,0 +1,837 @@
+@layer pg-reset { * { margin: 0; padding: 0; box-sizing: border-box; } }
+
+:root {
+  --black: #080808;
+  --black2: #111;
+  --card: #151515;
+  --gold: #d4af37;
+  --gold2: #f4d76b;
+  --white: #fff;
+  --muted: #aaa;
+  --border: rgba(212, 175, 55, .25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Inter, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(8, 8, 8, .96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  min-height: 72px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.navlinks {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navlinks button,
+.footerLinks button {
+  background: none;
+  border: 0;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.navlinks button:hover,
+.footerLinks button:hover {
+  color: var(--gold);
+}
+
+.navright {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search {
+  width: 180px;
+  padding: 10px 12px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  outline: none;
+}
+
+.search:focus {
+  border-color: var(--gold);
+}
+
+.cartBtn {
+  position: relative;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+.badgeCount {
+  position: absolute;
+  top: -9px;
+  right: -8px;
+  background: var(--gold);
+  color: #000;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.menuBtn {
+  display: none;
+  background: none;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.hero {
+  min-height: 530px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 20px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(212, 175, 55, .13), transparent 35%),
+    linear-gradient(135deg, #080808, #17120a, #080808);
+}
+
+.heroContent {
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(55px, 9vw, 95px);
+  line-height: .9;
+  margin-bottom: 25px;
+}
+
+.hero p {
+  color: #c8c8c8;
+  font-size: 17px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.goldBtn {
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 8px;
+  transition: .25s;
+}
+
+.goldBtn:hover {
+  background: var(--gold2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, .2);
+}
+
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 70px 20px;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.sectionTitle small {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+.sectionTitle h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 48px;
+  margin-top: 5px;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.catBtn {
+  padding: 10px 18px;
+  border: 1px solid #333;
+  background: #111;
+  color: #ccc;
+  border-radius: 30px;
+}
+
+.catBtn.active,
+.catBtn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(145deg, #181818, #0f0f0f);
+  border: 1px solid #292929;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .5);
+}
+
+.productVisual {
+  height: 210px;
+  display: grid;
+  place-items: center;
+  font-size: 80px;
+  background:
+    radial-gradient(circle, rgba(212, 175, 55, .14), transparent 55%),
+    #101010;
+  border-bottom: 1px solid #292929;
+}
+
+.productInfo {
+  padding: 18px;
+}
+
+.productBadge {
+  display: inline-block;
+  color: #000;
+  background: var(--gold);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .7px;
+  margin-bottom: 10px;
+}
+
+.productInfo h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.category {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.current {
+  color: var(--gold2);
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.old {
+  color: #777;
+  text-decoration: line-through;
+  font-size: 13px;
+}
+
+.discount {
+  color: #74c69d;
+  font-size: 11px;
+}
+
+.buy {
+  width: 100%;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: #000;
+  padding: 11px;
+  border-radius: 7px;
+  font-weight: 800;
+}
+
+.buy:hover {
+  background: var(--gold2);
+}
+
+.why {
+  background: #0d0d0d;
+  border-top: 1px solid #1d1d1d;
+  border-bottom: 1px solid #1d1d1d;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.benefit {
+  text-align: center;
+  padding: 25px;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  background: #111;
+}
+
+.benefitIcon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.benefit h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 23px;
+  color: var(--gold);
+}
+
+.benefit p,
+footer p {
+  color: #888;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 45px 20px;
+  text-align: center;
+  background: #050505;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .75);
+  z-index: 1500;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.cartDrawer {
+  position: fixed;
+  right: -430px;
+  top: 0;
+  width: min(430px, 100%);
+  height: 100vh;
+  background: #0d0d0d;
+  z-index: 1600;
+  border-left: 1px solid var(--gold);
+  transition: .3s;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartDrawer.show {
+  right: 0;
+}
+
+.drawerHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #292929;
+}
+
+.drawerHead h2,
+.modalHead h2 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold);
+  font-size: 30px;
+}
+
+.close {
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 28px;
+}
+
+.cartItems {
+  flex: 1;
+  overflow: auto;
+  padding: 15px 0;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  padding: 60px 10px;
+}
+
+.cartItem {
+  display: flex;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #222;
+}
+
+.cartEmoji {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  background: #151515;
+  border-radius: 8px;
+  font-size: 30px;
+}
+
+.cartItemInfo {
+  flex: 1;
+}
+
+.cartItemInfo h4 {
+  font-size: 14px;
+}
+
+.cartItemInfo p {
+  color: var(--gold);
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty button {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #444;
+  background: #181818;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.remove {
+  color: #777;
+  background: none;
+  border: 0;
+  font-size: 11px;
+  margin-left: 10px;
+}
+
+.cartBottom {
+  border-top: 1px solid #292929;
+  padding-top: 20px;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.totalRow span:last-child {
+  color: var(--gold);
+}
+
+.fullBtn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, .8);
+  overflow: auto;
+  padding: 25px 15px;
+}
+
+.modal.show {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.modalBox {
+  width: min(700px, 100%);
+  background: #101010;
+  border: 1px solid var(--gold);
+  border-radius: 15px;
+  padding: 25px;
+  margin: auto;
+}
+
+.modalHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field.full {
+  grid-column: 1/-1;
+}
+
+.field label {
+  display: block;
+  color: #bbb;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  background: #080808;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 7px;
+  outline: none;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--gold);
+}
+
+.paymentTitle {
+  color: var(--gold);
+  margin: 15px 0 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+}
+
+.payments {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.payment {
+  padding: 13px;
+  border: 1px solid #333;
+  background: #0b0b0b;
+  color: #ccc;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.payment.selected {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.orderSummary {
+  margin: 20px 0;
+  padding: 15px;
+  background: #0b0b0b;
+  border: 1px solid #222;
+  border-radius: 8px;
+}
+
+.summaryLine {
+  display: flex;
+  justify-content: space-between;
+  margin: 7px 0;
+  color: #bbb;
+}
+
+.summaryLine.total {
+  color: var(--gold2);
+  font-weight: 800;
+  font-size: 19px;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+  margin-top: 12px;
+}
+
+.demoNote {
+  color: #777;
+  text-align: center;
+  font-size: 11px;
+  margin-top: 12px;
+}
+
+.success {
+  text-align: center;
+  padding: 35px 10px;
+}
+
+.successIcon {
+  font-size: 65px;
+  margin-bottom: 15px;
+}
+
+.success h2 {
+  color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 40px;
+}
+
+.success p {
+  color: #aaa;
+  margin: 8px 0;
+}
+
+.orderNo {
+  margin: 20px auto;
+  padding: 15px;
+  background: #0a0a0a;
+  border: 1px solid #292929;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.successLabel {
+  margin-top: 12px !important;
+}
+
+@media(max-width:1000px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media(max-width:760px) {
+
+  .nav {
+    flex-wrap: wrap;
+    padding: 12px 15px;
+  }
+
+  .menuBtn {
+    display: block;
+  }
+
+  .navlinks {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .navlinks.open {
+    display: flex;
+  }
+
+  .navright {
+    margin-left: auto;
+  }
+
+  .search {
+    width: 130px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .benefits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width:520px) {
+
+  .logo {
+    font-size: 29px;
+  }
+
+  .search {
+    width: 105px;
+  }
+
+  .hero {
+    min-height: 470px;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 50px 15px;
+  }
+
+  .sectionTitle h2 {
+    font-size: 40px;
+  }
+
+  .grid {
+    gap: 10px;
+  }
+
+  .productVisual {
+    height: 150px;
+    font-size: 55px;
+  }
+
+  .productInfo {
+    padding: 12px;
+  }
+
+  .productInfo h3 {
+    font-size: 14px;
+  }
+
+  .current {
+    font-size: 17px;
+  }
+
+  .old {
+    font-size: 11px;
+  }
+
+  .benefits {
+    gap: 10px;
+  }
+
+  .benefit {
+    padding: 18px 8px;
+  }
+
+  .benefit h3 {
+    font-size: 19px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+  .payments {
+    grid-template-columns: 1fr;
+  }
+
+  .modalBox {
+    padding: 18px;
+  }
+}
+
+@media(max-width:370px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search {
+    display: none;
+  }
+}

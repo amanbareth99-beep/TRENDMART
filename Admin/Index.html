@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendMart Admin</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #f5c542;
+      padding: 20px;
+    }
+    .box {
+      max-width: 420px;
+      margin: 50px auto;
+      padding: 25px;
+      border: 1px solid #d4af37;
+      border-radius: 12px;
+      background: #1c1c1c;
+    }
+    h1, h2 { text-align: center; }
+    input, button {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 13px;
+      margin: 9px 0;
+      border-radius: 6px;
+    }
+    input {
+      background: #292929;
+      color: white;
+      border: 1px solid #777;
+    }
+    button {
+      background: #d4af37;
+      color: #111;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #dashboard { display: none; }
+    .note {
+      color: #ddd;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="login">
+    <h1>TrendMart</h1>
+    <h2>Admin Panel</h2>
+    <p class="note">
+      यह केवल इंटरफ़ेस डेमो है। अभी सुरक्षित लॉगिन सेटअप नहीं है।
+    </p>
+    <input id="username" placeholder="Admin Username">
+    <input id="password" type="password" placeholder="Admin Password">
+    <button id="loginBtn">Login</button>
+    <p id="message" role="status"></p>
+  </div>
+
+  <div class="box" id="dashboard">
+    <h1>TrendMart Admin</h1>
+    <h2>Dashboard</h2>
+    <p class="note">
+      Admin Panel का शुरुआती डिज़ाइन तैयार है।
+      प्रोडक्ट जोड़ने, ऑर्डर देखने और कीमत बदलने के लिए
+      सुरक्षित लॉगिन तथा डेटाबेस जोड़ना बाकी है।
+    </p>
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", function () {
+      document.getElementById("message").textContent =
+        "अभी सुरक्षित लॉगिन सेटअप नहीं है। अगला चरण पूरा करना बाकी है।";
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      document.getElementById("dashboard").style.display = "none";
+      document.getElementById("login").style.display = "block";
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("message").textContent = "";
+    });
+  </script>
+</body>
+</html>
